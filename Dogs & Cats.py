@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 14 23:11:06 2017
-
-@author: KANHAIYA
-"""
 
 from keras.models import Sequential
 from keras.layers import Convolution2D
@@ -21,8 +16,8 @@ classifier.add(Convolution2D(32, 3, 3, input_shape = (64, 64, 3), activation = '
 classifier.add(MaxPooling2D(pool_size = (2, 2)))
 
 # Adding a 2nd Convolution layer
-classifier.add(Convolution2D(32, 3, 3, activation = 'relu')) # improve we can double up
-# 32 to 64 to increase the accuracy
+classifier.add(Convolution2D(32, 3, 3, activation = 'relu')) # to improve we can double up
+# 32 to 64 to increase the accuracy or even to 256 but that would take a lot of time so better run it on GPU
 classifier.add(MaxPooling2D(pool_size = (2, 2)))
 # Flattening
 classifier.add(Flatten())
@@ -54,7 +49,8 @@ test_set = test_datagen.flow_from_directory('dataset/test_set',
                                             class_mode='binary')
 
 classifier.fit_generator(training_set,
-                        steps_per_epoch=8000,  # number of Images
+                        steps_per_epoch=8000,  # number of  training Images
                         epochs=25,
                         validation_data=test_set,
-                        validation_steps=2000)
+                        validation_steps=2000)  # number of test images
+''' you need change the epoch steps with respect to the images you have in training and test set
