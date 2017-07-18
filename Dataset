@@ -1,5 +1,5 @@
-You can download teh training and test set from the below given link
+You can download the training and test set from the below given link
 https://www.kaggle.com/c/dogs-vs-cats/data
-The above data set has 25000 images in tthe training set
+The above data set has 25000 images in the training set
 You need to change accordingly the parameters in the code
 You need to also have the keras, theano, tensorflow packages installed
